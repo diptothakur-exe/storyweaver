@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StoryWeaver — AI Narrative Engine</title>
+    <meta name="description" content="Build branching narratives with AI-powered story generation" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body, #root {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #080a0f;
+        color: #c9d1d9;
+        font-family: 'DM Sans', system-ui, sans-serif;
+      }
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: #0d1117; }
+      ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #484f58; }
+
+      /* React Flow overrides */
+      .react-flow__background { background: #080a0f; }
+      .react-flow__edge-path { stroke: #30363d; stroke-width: 2; }
+      .react-flow__edge.selected .react-flow__edge-path,
+      .react-flow__edge:hover .react-flow__edge-path { stroke: #f59e0b; stroke-width: 2.5; }
+      .react-flow__controls { background: #161b22; border: 1px solid #30363d; border-radius: 8px; overflow: hidden; }
+      .react-flow__controls-button { background: #161b22; border: none; border-bottom: 1px solid #21262d; color: #8b949e; fill: #8b949e; }
+      .react-flow__controls-button:hover { background: #21262d; fill: #f59e0b; }
+      .react-flow__minimap { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; }
+      .react-flow__minimap-mask { fill: rgba(8,10,15,0.7); }
+      .react-flow__minimap-node { fill: #21262d; stroke: #484f58; }
+      .react-flow__attribution { display: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
