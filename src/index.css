@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #080a0f;
+    --color-surface: #0d1117;
+    --color-border: #21262d;
+    --color-accent: #f59e0b;
+    --color-accent-dim: rgba(245, 158, 11, 0.15);
+    --color-text: #c9d1d9;
+    --color-text-dim: #6e7681;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply flex items-center justify-center gap-2 px-4 py-2.5
+      bg-amber-500 hover:bg-amber-400 active:bg-amber-600
+      text-ink-950 font-body font-semibold text-sm rounded-lg
+      transition-all duration-200 ease-out
+      focus:outline-none focus:ring-2 focus:ring-amber-500/50
+      disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-amber-500;
+  }
+
+  .btn-secondary {
+    @apply flex items-center justify-center gap-2 px-4 py-2.5
+      bg-ink-800 hover:bg-ink-700 active:bg-ink-900
+      border border-ink-600 hover:border-ink-500
+      text-ink-100 font-body font-medium text-sm rounded-lg
+      transition-all duration-200 ease-out
+      focus:outline-none focus:ring-2 focus:ring-ink-500/50
+      disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply flex items-center justify-center gap-2 px-3 py-2
+      text-ink-400 hover:text-ink-100 hover:bg-ink-800
+      font-body font-medium text-sm rounded-lg
+      transition-all duration-200 ease-out
+      focus:outline-none;
+  }
+
+  .input-field {
+    @apply w-full bg-ink-900 border border-ink-700
+      focus:border-amber-500/60 focus:ring-1 focus:ring-amber-500/30
+      text-ink-100 placeholder-ink-500 text-sm font-body
+      rounded-lg px-3 py-2.5 outline-none
+      transition-all duration-200 resize-none;
+  }
+
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-widest text-ink-400 mb-1.5;
+  }
+
+  .panel-section {
+    @apply border-b border-ink-700/50 pb-5 mb-5 last:border-0 last:mb-0 last:pb-0;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      #161b22 25%,
+      #21262d 50%,
+      #161b22 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+/* Graph edge animations */
+.react-flow__edge-path {
+  stroke-dasharray: 6 3;
+  animation: dash 20s linear infinite;
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.path-highlighted .react-flow__edge-path {
+  stroke-dasharray: none;
+  stroke: #f59e0b;
+  filter: drop-shadow(0 0 4px rgba(245,158,11,0.5));
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: -100; }
+}
+
+/* Node connection handle styles */
+.react-flow__handle {
+  width: 10px !important;
+  height: 10px !important;
+  background: #30363d !important;
+  border: 2px solid #484f58 !important;
+  transition: all 0.2s ease;
+}
+
+.react-flow__handle:hover {
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+  transform: scale(1.3);
+}
+
+/* Tooltip */
+.tooltip {
+  @apply absolute z-50 max-w-xs px-3 py-2 text-xs
+    bg-ink-700 text-ink-100 border border-ink-600
+    rounded-lg shadow-xl pointer-events-none
+    font-body leading-relaxed;
+}
+
+/* Scrollbar for panel */
+.panel-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #30363d #0d1117;
+}
+
+/* Loading skeleton */
+.skeleton {
+  @apply rounded-lg shimmer-bg;
+}
+
+/* Story node type colors */
+.node-type-root       { --node-accent: #f59e0b; }
+.node-type-logical    { --node-accent: #2dd4bf; }
+.node-type-twist      { --node-accent: #a78bfa; }
+.node-type-dramatic   { --node-accent: #f87171; }
+.node-type-creative   { --node-accent: #34d399; }
